@@ -22,9 +22,6 @@ public class FrontScreen extends JPanel {
         this.screenHeight = screenHeight;
     }
 
-    public void test() {
-        this.repaint();
-    }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

@@ -3,7 +3,6 @@ package modele;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.awt.image.ImageObserver;
 
 public class Bird {
     private Image BirdImage = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("../resources/bird.png"));

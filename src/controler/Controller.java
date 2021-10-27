@@ -89,25 +89,25 @@ public class Controller extends MouseAdapter {
         }
 
         this.panel.revalidate();
-        this.panel.update(pgs.getGraphics());
+        this.panel.repaint();
     }
 
     public void popup_bird() {
-        Bird bird = new Bird(120, 75);
+        Bird bird = new Bird(BIRD_WIDTH, BIRD_HEIGHT);
         bird.setX(SCREEN_WIDTH / 2);
         bird.setY(SCREEN_HEIGHT / 2);
         Bird_list.add(bird);
     }
 
     public void popup_fresh_food(int X, int Y) {
-        FreshFood freshFood = new FreshFood(120, 75);
+        FreshFood freshFood = new FreshFood(FRESH_FOOD_WIDTH, FRESH_FOOD_HEIGHT);
         freshFood.setX(X);
         freshFood.setY(Y);
         fesh_food_list.add(freshFood);
     }
 
     public void popup_out_of_date_food(int X, int Y) {
-        OutOfDateFood outofdatefood = new OutOfDateFood(120, 75);
+        OutOfDateFood outofdatefood = new OutOfDateFood(OUT_OF_DATE_FOOD_WIDTH, OUT_OF_DATE_FOOD_HEIGHT);
         outofdatefood.setX(X);
         outofdatefood.setY(Y);
         Out_of_date_food_list.add(outofdatefood);
