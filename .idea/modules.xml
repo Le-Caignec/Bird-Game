@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Bird-Game.iml" filepath="$PROJECT_DIR$/Bird-Game.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/Bird-Game.iml" filepath="$PROJECT_DIR$/.idea/Bird-Game.iml" />
+>>>>>>> 7951738 (debut)
     </modules>
   </component>
 </project>
