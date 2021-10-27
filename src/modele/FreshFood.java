@@ -9,6 +9,7 @@ public class FreshFood {
     private Image FoodImage = Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("../resources/fresh_food.png"));
     private int X_Localisation = 0;
     private int Y_Localisation = 0;
+    private double Time_leave=0;
 
     public FreshFood(int initialWidth, int initialHeight) {
         this.FoodImageSize(initialWidth, initialHeight);
@@ -36,6 +37,13 @@ public class FreshFood {
 
     public int getY() {
         return this.Y_Localisation;
+    }
+
+    public void setTime_leave(double Time_leave ){
+        this.Time_leave = Time_leave;
+    }
+    public double getTime_leave(){
+        return this.Time_leave;
     }
 
     public Rectangle getRectangle() {

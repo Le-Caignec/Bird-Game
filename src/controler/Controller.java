@@ -7,16 +7,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.OverlayLayout;
-import javax.swing.SwingUtilities;
+import java.util.concurrent.TimeUnit;
+import javax.swing.*;
+
 import modele.Bird;
 import modele.FreshFood;
 import modele.OutOfDateFood;
 import vue.FrontScreen;
 
 public class Controller extends MouseAdapter {
+    //Variable static Globale
     public static final int BIRD_WIDTH = 120;
     public static final int BIRD_HEIGHT = 75;
     public static final int FRESH_FOOD_WIDTH = 120;
@@ -25,6 +25,8 @@ public class Controller extends MouseAdapter {
     public static final int OUT_OF_DATE_FOOD_HEIGHT = 75;
     public static final int SCREEN_WIDTH = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     public static final int SCREEN_HEIGHT = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+
+    //Variable Objet
     private final JFrame f = new JFrame("Bird Game");
     public JPanel panel;
     private static final Controller C = new Controller();
@@ -32,16 +34,13 @@ public class Controller extends MouseAdapter {
     public static ArrayList<FreshFood> fesh_food_list = new ArrayList();
     public static ArrayList<OutOfDateFood> Out_of_date_food_list = new ArrayList();
     public static ArrayList<Bird> Bird_list = new ArrayList();
+    private static long start = System.currentTimeMillis();;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                Controller.C.buildFrame();
-                Thread t = new Thread() {
-                    public void run() {
-                        Controller.C.gameScreen();
-                    }
-                };
+                C.buildFrame();
+                Thread t = new Thread(() -> C.gameScreen());
                 t.start();
             }
         });
@@ -79,8 +78,7 @@ public class Controller extends MouseAdapter {
 
     public void mouseClicked(MouseEvent e) {
         PrintStream var10000 = System.out;
-        int var10001 = e.getX();
-        var10000.println(var10001 + " : " + e.getY());
+        System.out.println("X position : "+e.getX() + " : " +"Y position : "+e.getY());
         double a = Math.random();
         if (a >= 0.3D) {
             this.popup_fresh_food(e.getX(), e.getY());
@@ -103,13 +101,22 @@ public class Controller extends MouseAdapter {
         FreshFood freshFood = new FreshFood(FRESH_FOOD_WIDTH, FRESH_FOOD_HEIGHT);
         freshFood.setX(X);
         freshFood.setY(Y);
+        freshFood.setTime_leave((int)(System.currentTimeMillis() - start)/1000);
         fesh_food_list.add(freshFood);
     }
 
     public void popup_out_of_date_food(int X, int Y) {
+        double currentTime=(double)(System.currentTimeMillis() - start)/1000:
+        for (int i=0;i<Out_of_date_food_list.size();i++){
+            if (Out_of_date_food_list.get(i).getTime_leave()>currentTime){
+
+            }
+        }
+
         OutOfDateFood outofdatefood = new OutOfDateFood(OUT_OF_DATE_FOOD_WIDTH, OUT_OF_DATE_FOOD_HEIGHT);
         outofdatefood.setX(X);
         outofdatefood.setY(Y);
+        outofdatefood.setTime_leave(currentTime);
         Out_of_date_food_list.add(outofdatefood);
     }
 }
