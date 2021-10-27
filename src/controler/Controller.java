@@ -98,6 +98,12 @@ public class Controller extends MouseAdapter {
     }
 
     public void popup_fresh_food(int X, int Y) {
+        double currentTime=(double)(System.currentTimeMillis() - start)/1000;
+        for (int i=0;i<fesh_food_list.size();i++){
+            if (fesh_food_list.get(i).getTime_leave()>currentTime){
+
+            }
+        }
         FreshFood freshFood = new FreshFood(FRESH_FOOD_WIDTH, FRESH_FOOD_HEIGHT);
         freshFood.setX(X);
         freshFood.setY(Y);
@@ -106,13 +112,13 @@ public class Controller extends MouseAdapter {
     }
 
     public void popup_out_of_date_food(int X, int Y) {
-        double currentTime=(double)(System.currentTimeMillis() - start)/1000:
+        double currentTime=(double)(System.currentTimeMillis() - start)/1000;
         for (int i=0;i<Out_of_date_food_list.size();i++){
-            if (Out_of_date_food_list.get(i).getTime_leave()>currentTime){
+            double time_of_food=(Out_of_date_food_list.get(i).getTime_leave()- start)/1000;
+            if ( time_of_food > currentTime){
 
             }
         }
-
         OutOfDateFood outofdatefood = new OutOfDateFood(OUT_OF_DATE_FOOD_WIDTH, OUT_OF_DATE_FOOD_HEIGHT);
         outofdatefood.setX(X);
         outofdatefood.setY(Y);
